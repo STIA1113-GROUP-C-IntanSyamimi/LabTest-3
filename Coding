@@ -1,0 +1,51 @@
+package Test3;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+public class LabTest3 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		int numofwords;
+		int sum = 0;
+		
+		System.out.println("Enter the number of words: ");
+		numofwords = sc.nextInt();
+		String [] words = new String [numofwords];
+		
+		System.out.println("Enter the words:");
+		
+		for (int i = 0; i < numofwords; i++) {
+			words[i] = sc.next();
+		}
+		
+		
+			countMethod(words, sum);
+		
+
+	}
+	
+	public static void countMethod(String [] numofwords, int x) {
+		
+		Map<String, Integer> sum = new HashMap<String, Integer>();
+		
+		for(String word: numofwords) {
+			if(sum.containsKey(word)) {
+				sum.put(word, sum.get(word)+1);
+			}
+			else {
+				sum.put(word,1);
+			}
+		}
+		
+		Set<String> wordString = sum.keySet();
+		
+		for(String word: wordString) {
+			if(sum.get(word)>0) {
+				System.out.println(word + " : " + sum.get(word));
+			}
+		}
+	}
+}
+	    
